@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090707">
+  <meta name="description" content="Portofolio pribadi Haikal Mubarok — teknisi jaringan dan instalasi FTTH.">
+  <title>Haikal Mubarok | Dark Metal Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Nosifer&family=UnifrakturCook:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090707; --panel: #120b0c; --red: #c50922; --bright: #ff243d;
+      --muted: #a89b9d; --line: rgba(255, 35, 61, .28); --white: #f4eeee;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--white); background:
+        radial-gradient(ellipse at 50% 0%, rgba(133, 0, 20, .24), transparent 42%),
+        repeating-linear-gradient(132deg, transparent 0 95px, rgba(255,255,255,.018) 96px 97px),
+        var(--bg);
+      font-family: Inter, sans-serif; overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 5; opacity: .16;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, 90%); margin: auto; }
+    .topbar { display:flex; justify-content:space-between; align-items:center; padding:25px 0; border-bottom:1px solid var(--line); }
+    .brand { font: 700 1.45rem 'UnifrakturCook', serif; color:var(--bright); letter-spacing:1px; text-shadow:0 0 16px #a00020; }
+    nav { display:flex; gap:25px; font-size:.78rem; text-transform:uppercase; letter-spacing:2px; color:#c6babc; }
+    nav a:hover { color:var(--bright); }
+    .hero { min-height: 650px; display:grid; place-items:center; text-align:center; position:relative; padding:90px 0 80px; }
+    .sigil { position:absolute; width:min(720px,95vw); opacity:.12; color:#e20b2a; pointer-events:none; }
+    .eyebrow { color:var(--bright); letter-spacing:6px; font-size:.68rem; text-transform:uppercase; }
+    h1 { position:relative; margin:22px 0 12px; font: clamp(3.4rem, 10vw, 8rem)/.9 'Nosifer', cursive; color:#e41430; text-shadow: 0 4px 0 #5b0714, 0 0 32px rgba(255,0,40,.4); }
+    .hero h2 { font: clamp(1.5rem,4vw,2.6rem) 'Metal Mania', cursive; color:#f4e8e9; letter-spacing:4px; margin:20px 0; }
+    .intro { max-width:650px; margin:0 auto; color:var(--muted); line-height:1.8; font-size:.98rem; }
+    .actions { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:32px; }
+    .btn { padding:13px 22px; border:1px solid var(--red); color:white; text-transform:uppercase; letter-spacing:2px; font-size:.72rem; transition:.2s; }
+    .btn.primary { background:var(--red); box-shadow:0 0 24px rgba(197,9,34,.25); }
+    .btn:hover { background:#f01636; transform:translateY(-3px); }
+    .slashes { color:var(--red); font: 2rem 'Metal Mania'; letter-spacing:8px; margin-top:40px; opacity:.8; }
+    section { padding:82px 0; border-top:1px solid rgba(255,255,255,.07); position:relative; }
+    .section-kicker { color:var(--red); letter-spacing:5px; text-transform:uppercase; font-size:.65rem; }
+    .section-title { font: clamp(2.5rem,6vw,4.4rem) 'UnifrakturCook',serif; color:#f0e6e7; margin:10px 0 34px; text-shadow:3px 3px 0 #650817; }
+    .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+    .card { background:linear-gradient(145deg,rgba(36,13,17,.92),rgba(12,9,10,.94)); border:1px solid var(--line); padding:27px; position:relative; overflow:hidden; }
+    .card::after { content:""; position:absolute; width:120px; height:2px; background:var(--bright); right:-35px; top:20px; transform:rotate(45deg); opacity:.7; }
+    .card h3 { font:1.8rem 'Metal Mania'; color:var(--bright); margin:0 0 12px; }
+    .card p { color:var(--muted); line-height:1.8; margin:0; }
+    .profile-list { display:grid; grid-template-columns:130px 1fr; gap:14px 18px; }
+    .profile-list dt { color:#e3344b; text-transform:uppercase; letter-spacing:2px; font-size:.7rem; padding-top:4px; }
+    .profile-list dd { margin:0; color:#e5dadd; overflow-wrap:anywhere; }
+    .skill { margin:18px 0; }
+    .skill-head { display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:9px; }
+    .bar { height:5px; background:#291216; overflow:hidden; }
+    .bar span { display:block; height:100%; width:88%; background:linear-gradient(90deg,#710817,#ff2944); box-shadow:0 0 14px #d10c2d; }
+    .tags { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .tag { border:1px solid var(--line); color:#e5cdd1; padding:9px 13px; font-size:.75rem; letter-spacing:1px; }
+    .contact { text-align:center; background:radial-gradient(ellipse at center,rgba(133,0,20,.18),transparent 65%); }
+    .contact p { color:var(--muted); line-height:1.8; max-width:620px; margin:0 auto 25px; }
+    footer { padding:25px 0; border-top:1px solid var(--line); text-align:center; color:#796d70; font-size:.7rem; letter-spacing:2px; }
+    .ornament { color:#a50a23; font:1.2rem 'Metal Mania'; letter-spacing:6px; margin:25px 0; }
+    @media(max-width:700px) {
+      .topbar { align-items:flex-start; gap:18px; flex-direction:column; }
+      nav { gap:15px; flex-wrap:wrap; font-size:.65rem; }
+      .hero { min-height:570px; }
+      .grid { grid-template-columns:1fr; }
+      .profile-list { grid-template-columns:1fr; gap:6px; }
+      .profile-list dd { margin-bottom:13px; }
+      section { padding:65px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="brand" href="#home">HM // DARK ARTS</a>
+    <nav aria-label="Navigasi utama">
+      <a href="#about">Profil</a><a href="#skills">Keahlian</a><a href="#hobby">Hobi</a><a href="#contact">Kontak</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <svg class="sigil" viewBox="0 0 700 430" fill="none" aria-hidden="true">
+        <path d="M350 18 390 145 520 45 455 190 665 160 485 250 610 380 390 290 350 415 310 290 90 380 215 250 35 160 245 190 180 45 310 145Z" stroke="currentColor" stroke-width="3"/>
+        <path d="M350 65 370 175 470 95 420 205 570 190 435 260 520 340 375 280 350 365 325 280 180 340 265 260 130 190 280 205 230 95 330 175Z" stroke="currentColor" stroke-width="2"/>
+        <circle cx="350" cy="220" r="120" stroke="currentColor" stroke-width="2" stroke-dasharray="5 9"/>
+      </svg>
+      <div>
+        <div class="eyebrow">Personal Portfolio // Est. 2026</div>
+        <h1>HAIKAL</h1>
+        <h2>MUBAROK — NETWORK TECHNICIAN</h2>
+        <p class="intro">Menjelajahi dunia jaringan, menghubungkan setiap titik melalui teknologi. Fokus pada pemasangan dan instalasi jaringan serta FTTH (Fiber to the Home).</p>
+        <div class="actions">
+          <a class="btn primary" href="#about">Jelajahi Profil</a>
+          <a class="btn" href="#skills">Lihat Keahlian</a>
+        </div>
+        <div class="slashes">† ━━━━━ ✦ ━━━━━ †</div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-kicker">01 // Who am I?</div>
+        <h2 class="section-title">Profil Pribadi</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>IDENTITY</h3>
+            <dl class="profile-list">
+              <dt>Nama</dt><dd>Haikal Mubarok</dd>
+              <dt>Bidang</dt><dd>Teknik jaringan komputer</dd>
+              <dt>Domisili</dt><dd>Blitar, Jawa Timur, Indonesia</dd>
+              <dt>Fokus</dt><dd>Instalasi jaringan &amp; FTTH</dd>
+            </dl>
+          </article>
+          <article class="card">
+            <h3>THE PATH</h3>
+            <p>Saya tertarik pada teknologi jaringan, terutama proses instalasi dan penghubungan jaringan fiber optik hingga ke rumah pelanggan. Saya ingin terus mengembangkan kemampuan teknis, ketelitian, dan pengalaman di bidang jaringan.</p>
+            <div class="ornament">╱╲╱╲╱╲╱╲╱╲</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-kicker">02 // Technical abilities</div>
+        <h2 class="section-title">Keahlian &amp; Skill</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>NETWORK INSTALLATION</h3>
+            <p>Pemasangan dan instalasi jaringan komputer, penataan jalur kabel, serta pekerjaan dasar infrastruktur jaringan.</p>
+            <div class="tags"><span class="tag">NETWORKING</span><span class="tag">INSTALASI</span><span class="tag">TROUBLESHOOTING</span></div>
+          </article>
+          <article class="card">
+            <h3>FIBER OPTIC / FTTH</h3>
+            <p>Minat dan keterampilan pada instalasi FTTH (Fiber to the Home), teknologi fiber optik untuk menghubungkan jaringan hingga ke rumah.</p>
+            <div class="skill"><div class="skill-head"><span>NETWORK &amp; FTTH</span><span>FOCUS</span></div><div class="bar"><span></span></div></div>
+            <div class="tags"><span class="tag">FIBER OPTIC</span><span class="tag">FTTH</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="hobby">
+      <div class="wrap">
+        <div class="section-kicker">03 // Beyond the wires</div>
+        <h2 class="section-title">Hobi &amp; Minat</h2>
+        <div class="grid">
+          <article class="card"><h3>01 — TENIS MEJA</h3><p>Melatih fokus, refleks, konsentrasi, dan sportivitas melalui permainan tenis meja.</p></article>
+          <article class="card"><h3>02 — MEMANCING</h3><p>Menikmati waktu di alam terbuka, melatih kesabaran, dan mencari pengalaman baru.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="section-kicker">04 // Make a connection</div>
+        <h2 class="section-title">Let's Connect</h2>
+        <p>Terima kasih telah mengunjungi portofolio saya. Untuk menjaga privasi, alamat rumah dan nomor pribadi tidak ditampilkan pada halaman publik ini. Silakan hubungi saya melalui kanal profesional yang saya cantumkan di profil GitHub.</p>
+        <a class="btn primary" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+        <div class="ornament">† BLOOD • BLACK • NETWORK †</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> HAIKAL MUBAROK — BUILT IN DARKNESS, CONNECTED BY LIGHT.</footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
